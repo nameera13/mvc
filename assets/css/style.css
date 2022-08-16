@@ -1,0 +1,9 @@
+/* a:hover{background-color: white;} */
+a:hover{
+    
+  border: transparent;
+  background:#fff;
+  transition: 0.2s ;
+  transition-property: color, transform;
+
+}
