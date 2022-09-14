@@ -53,10 +53,10 @@
             Welcome: <b class="text-success"><?php echo ucfirst($_SESSION["fnm"]); ?></b>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Manage Profile</a></li>
-            <li><a class="dropdown-item" href="#">Manage Notifications</a></li>
-            <li><a class="dropdown-item" href="#">Change Password</a></li>
-            <li><a class="dropdown-item" href="#">Delect Account</a></li>
+            <li><a class="dropdown-item" href="<?php echo $mainurl; ?>ManageProfile">Manage Profile</a></li>
+            <li><a class="dropdown-item" href="<?php echo $mainurl; ?>ManageallUsers">Manage All Users <span class="badge badge-danger bg-danger"><?php echo $countuser[0]["total"];?></span> </a></li>
+            <li><a class="dropdown-item" href="<?php echo $mainurl; ?>ChangePassword">Change Password</a></li>
+            <li><a class="dropdown-item" href="<?php echo $mainurl;?>?delete-user=<?php echo base64_encode($shwdata[0]["r_id"]); ?>" onclick="return confirm('Are you sure to Delete Account?')">Delect Account</a></li>
             <li><a class="dropdown-item" href="<?php echo $mainurl; ?>?logout-here" onclick="return confirm('Are you sure to Logout user?')">Logout!</a></li>
           </ul>
         </li>
@@ -64,8 +64,6 @@
         }
         ?>
       </ul>
-
-      
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>

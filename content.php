@@ -5,16 +5,16 @@
         </div>
         <div class="col-md-8">
             <div class="form-group">
-                <form action="" method="post">
+                <form action="" method="post" id="frm" data-bvalidator-validate>
                     <div class="form-group mt-5">
-                        <input type="text" class="form-control" name="em" placeholder="Enter Email *" required >
+                        <input type="text" class="form-control" name="em" placeholder="Enter Email *" data-bvalidator="email,required" >
                     </div>
                     <div class="form-group mt-4">
-                        <input type="password" class="form-control" name="pass" placeholder="Enter Password *" required>
+                        <input type="password" class="form-control" name="pass" placeholder="Enter Password *" data-bvalidator="required"  data-bvalidator-msg="Please enter your password">
                     </div>
                     <div class="form-group mt-4">
                         <input type="submit" name="log" class="btn btn-outline-success btn-lg" value="Sign In!">
-                        <b><a href="#" class="link-info" >Forgot Password ?</a></b>
+                        <b><a href="<?php echo $mainurl ;?>ForgotPassword" class="link-info" >Forgot Password ?</a></b>
                     </div>
                     <div class="form-group mt-4">
                         <b>Don't have an Account <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#reg" >Create Your Account?</a></b>

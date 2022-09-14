@@ -8,42 +8,42 @@
                 <div class="row">
                     <div class="col-md-12 mt-2">
                         <div class="form-group">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="" method="post" enctype="multipart/form-data"  data-bvalidator-validate>
                                 <div class="form-group mt-2">
-                                    <input type="file" name="img" class="form-control" placeholder="Enter Photo *" required>
+                                    <input type="file" name="img" class="form-control" placeholder="Enter Photo *" data-bvalidator="extension[jpg:png:txt],required" data-bvalidator-msg="Please select file of type .jpg, .png or .jpeg">
+                                </div>
+                                <div class="form-group mt-2">   
+                                    <input type="text" name="fnm" class="form-control" placeholder="Enter FirstName *" data-bvalidator="alpha,required">
                                 </div>
                                 <div class="form-group mt-2">
-                                    <input type="text" name="fnm" class="form-control" placeholder="Enter FirstName *" required>
+                                    <input type="text" name="lnm" class="form-control" placeholder="Enter LastName *" data-bvalidator="alpha,required">
                                 </div>
                                 <div class="form-group mt-2">
-                                    <input type="text" name="lnm" class="form-control" placeholder="Enter LastName *" required>
+                                    <input type="email" name="em" class="form-control" placeholder="Enter Email *" data-bvalidator="required">
                                 </div>
                                 <div class="form-group mt-2">
-                                    <input type="email" name="em" class="form-control" placeholder="Enter Email *" required>
+                                    <input type="password" name="pass" class="form-control" placeholder="Enter Password *" id="new_pass1" data-bvalidator="passwordFormat,required" data-bvalidator-msg="Min 8 characters including a number, letters a-z, A-Z" >
                                 </div>
                                 <div class="form-group mt-2">
-                                    <input type="password" name="pass" class="form-control" placeholder="Enter Password *" required>
+                                    <input type="password" name="cpass" class="form-control" placeholder="Enter Confirm Password *"  id="new_pass2" data-bvalidator="equal[new_pass1],required" data-bvalidator-msg-equal="Please enter the same password again">
                                 </div>
                                 <div class="form-group mt-2">
-                                    <input type="password" name="cpass" class="form-control" placeholder="Enter Confirm Password *" required>
+                                    <input type="number" name="phone" class="form-control" placeholder="Enter Phone *" data-bvalidator="number,minlen[10],maxlen[10],required"  data-bvalidator-msg="Please Enter valid Mobile Number">
                                 </div>
                                 <div class="form-group mt-2">
-                                    <input type="number" name="phone" class="form-control" placeholder="Enter Phone *" required>
-                                </div>
-                                <div class="form-group mt-2">
-                                    <input type="radio" name="gender" value="male" required>Male
-                                    <input type="radio" name="gender" value="female">Female
+                                    <input type="radio" name="gender" value="male" >Male
+                                    <input type="radio" name="gender" value="female" data-bvalidator="required" data-bvalidator-msg="Select radio">Female
                                 </div>
                                 <div class="form-group mt-2">
                                     Reading<input type="checkbox" name="chk[]" value="reading" >
                                     Writing<input type="checkbox" name="chk[]" value="writing">
-                                    Play<input type="checkbox" name="chk[]" value="play">
+                                    Play<input type="checkbox" name="chk[]" value="play" data-bvalidator="min[1],required" data-bvalidator-msg="Select at least one checkboxes">
                                 </div>
                                 <div class="form-group mt-2">
-                                    <textarea name="address" cols="30" rows="10" class="form-control" placeholder="Enter Address *" required></textarea>
+                                    <textarea name="address" cols="30" rows="10" class="form-control" placeholder="Enter Address *" data-bvalidator="required" data-bvalidator-msg="Please Enter Address"></textarea>
                                 </div>
                                 <div class="form-group mt-2">
-                                    <select name="state" class="form-control" placeholder="Enter State *" required>
+                                    <select name="state" class="form-control" placeholder="Enter State *" data-bvalidator="required" data-bvalidator-msg="Please Select State">
                                         <option value="">select state</option>
                                         <?php
                                         foreach($st as $st1)
@@ -57,7 +57,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group mt-2">
-                                    <select name="city" class="form-control" placeholder="Enter City *" required>
+                                    <select name="city" class="form-control" placeholder="Enter City *" data-bvalidator="required" data-bvalidator-msg="Please Select City">
                                         <option value="">select city</option>
                                         <?php
                                         foreach($ct as $ct1)

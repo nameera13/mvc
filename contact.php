@@ -11,24 +11,24 @@
         </div>
         <div class="col-md-7 mt-5">
         <div class="form-group">
-            <form method="post">
+            <form method="post"id="frm" data-bvalidator-validate>
                 <div class="form-group mt-2">
-                    <input type="text"  name="fnm" class="form-control" placeholder="Enter FirstName *" required>
+                    <input type="text"  name="fnm" class="form-control" placeholder="Enter FirstName *" data-bvalidator="alpha,required">
                 </div>
                 <div class="form-group mt-2">
-                    <input type="text" name="lnm" class="form-control" placeholder="Enter LastName *" required>
+                    <input type="text" name="lnm" class="form-control" placeholder="Enter LastName *" data-bvalidator="alpha,required">
                 </div>
                 <div class="form-group mt-2">
-                    <input type="text" name="em" class="form-control" placeholder="Enter Email *" required>
+                    <input type="text" name="em" class="form-control" placeholder="Enter Email *" data-bvalidator="email,required">
                 </div>
                 <div class="form-group mt-2">
-                    <input type="text" name="phone" class="form-control" placeholder="Enter Phone *" required>
+                    <input type="text" name="phone" class="form-control" placeholder="Enter Phone *" data-bvalidator="number,required">
                 </div>
                 <div class="form-group mt-2">
-                    <input type="text" name="sub" class="form-control" placeholder="Enter Subject *" required>
+                    <input type="text" name="sub" class="form-control" placeholder="Enter Subject *" data-bvalidator="required" >
                 </div>
                 <div class="form-group mt-2">
-                    <textarea  class="form-control" name="msg" placeholder="Enter Message *" required></textarea>
+                    <textarea  class="form-control" name="msg" placeholder="Enter Message *" data-bvalidator="required"></textarea>
                 </div>
                 <div class="form-group mt-4">
                     <input type="submit" name="addcontact" class="btn btn-outline-success btn-lg" value="Send!" placeholder="Enter Email *" required>

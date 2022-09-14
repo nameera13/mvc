@@ -3,6 +3,7 @@
     $mainurl="http://localhost/mvc/";
     $baseurl="http://localhost/mvc/assets/";
 
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,11 @@
     <link rel='stylesheet' type='text/css' media='screen' href="<?php echo $baseurl; ?>css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' media='screen' href="<?php echo $baseurl; ?>css/bootstrap-grid.min.css">
     <link rel='stylesheet' type='text/css' media='screen' href="<?php echo $baseurl; ?>css/style.css">
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href="<?php echo $baseurl; ?>css/gray.css"> -->
+    <link rel='stylesheet' type='text/css' media='screen' href="<?php echo $baseurl; ?>css/bslikert.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <!-- all static js -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -27,10 +32,42 @@
 
     <script src="<?php echo $baseurl;?>js/bootstrap.min.js"></script>
     <script src="<?php echo $baseurl;?>js/bootstrap.bundle.min.js"></script>
+
+    <script src="<?php echo $baseurl;?>js/jquery.min.js"></script>
+    <script src="<?php echo $baseurl;?>js/jquery.bvalidator.min.js"></script>
+    <script src="<?php echo $baseurl;?>js/default.min.js"></script>
+    <!-- <script src="<?php echo $baseurl;?>js/gray.js"></script> -->
+    <script src="<?php echo $baseurl;?>js/bslikert.js"></script>
      
+    <script>
+
+        $(document).ready(function(){
+            $("#frm").bValidator();
+        })
+
+        function passwordFormat(password){
+		    regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/); // number, a-z, A-Z, min 8 chars
+		    if(regex.test(password))
+			    return true;
+		        return false;
+        }
+
+    </script>
+    <style type="text/css">
+        
+        #frm
+        {
+            margin: 0 0.5rem;
+            /* animation: pulse infinite;  */
+            animation: pulse; 
+            animation-duration:3s;
+        }
+    </style>
+
 </head>
 <body>
     <!-- header start here -->
+    
     <div class="container-fluid bg-dark p-3 text-white">
         <div class="row">
             <div class="col-md-5">call us: (+91)7383449786</div>
@@ -45,5 +82,6 @@
             </div>
         </div>
     </div>
+    
 </body>
 </html>
