@@ -72,12 +72,101 @@ class model
         $arr[]=$fetch;
         return $arr;        
     }
+
+    // create a member function for manageallusers
+
+    public function manageallusers($table,$table1,$table2,$where,$where1)
+    {
+        $sel="select * from $table join $table1 on $where join $table2 on $where1";
+        $exe=mysqli_query($this->conn,$sel);
+        while($fetch=mysqli_fetch_array($exe))
+        {
+            $arr[]=$fetch;
+        }
+        return $arr;
+    }
+
+    // create a member function for count all users
+    public function countuser($table,$column)
+    {
+        $sel="select count($column) as total from $table";
+        $exe=mysqli_query($this->conn,$sel);
+        while($fetch=mysqli_fetch_array($exe))
+        {
+            $arr[]=$fetch;
+        }
+        return $arr;
+    }
+
+    //create a member function for update users
+    public function upddata($table,$path,$fnm,$lnm,$email,$phone,$gen,$hob,$add,$st,$ct,$column,$id)
+    {
+        // $upd="update $table set photo='$path',firstname='$fnm',lastname='$lnm',email='$email',phone='$phone',gender='$gen', where $colunm='$id'";
+
+        $upd="update $table set photo='$path',firstname='$fnm',lastname='$lnm',email='$email',phone='$phone',gender='$gen',hobby='$hob',address='$add',s_id='$st',c_id='$ct' where $column='$id'";
+        $exe=mysqli_query($this->conn,$upd);
+        return $exe;
+    }
+
+    // create a member function for ForgetPassword
+    public function forgetpassword($table,$email,$column)
+    {
+        $select="select $column from $table where email='$email'";
+        $exe=mysqli_query($this->conn,$select);
+        $fetch=mysqli_fetch_array($exe);
+        $num_rows=mysqli_num_rows($exe);
+
+        if($num_rows==1)
+        {
+            $pass=base64_decode($fetch["password"]);
+            return $pass;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    //create a member function for ChangePassword
+    public function changepassword($table,$opass,$npass,$cpass,$id)
+    {
+        $select="select * from $table where r_id='$id'";
+        $exe=mysqli_query($this->conn,$select);
+        $fetch=mysqli_fetch_array($exe);
+        $pass=$fetch["password"];
+
+        if($opass==$pass && $npass==$cpass)
+        {
+            $upd="Update $table set password='$npass' where r_id='$id'";
+            $exe=mysqli_query($this->conn,$upd);
+            return $exe;
+        }
+        else 
+        {
+            return false;
+         }
+    }
+
+    //create a member function for delete all data
+
+    public function delalldata($table,$id)
+    {
+        $column=array_keys($id);
+        $column1=implode(",",$column);
+        $value=array_values($id);
+        $value1=implode("','",$value); 
+        $del="delete from $table where $column1='$value1'";
+        $exe=mysqli_query($this->conn,$del);
+        return $exe;
+
+    }
+
     //create a member function for logout
     public function logout()
     {
         unset($_SESSION["rid"]);
         unset($_SESSION["fnm"]);
-        unset($_SESSION["email"]);
+        unset($_SESSION["em"]);
         session_destroy();
         return true;
     }
